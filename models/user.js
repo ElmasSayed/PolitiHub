@@ -13,7 +13,7 @@ var UserSchema = mongoose.Schema({
 	email: {
 		type: String
 	},
-	district: {
+	zipcode: {
 		type: String
 	}
 

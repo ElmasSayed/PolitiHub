@@ -17,13 +17,9 @@ var db = mongoose.connection;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-// Init App
+// Init App with express
 var app = express();
 
-// View Engine
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -73,8 +69,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
-
-
 
 app.use('/', routes);
 app.use('/users', users);
