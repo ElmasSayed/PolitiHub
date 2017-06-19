@@ -58,22 +58,22 @@
                                         <div class="col-md-6 col-xs-6 follow line" align="center">
                                         </div>
                                         <div class="col-md-12 col-xs-12 login_control">
-                                            <!-- <form action="/users/" method="POST">     -->
+                                            <form action="/login" method="POST">     
                                                  
                                                 <div class="control">
-                                                    <div class="label"  placeholder="joshdoe@email.com">Email Address</div>
-                                                    <input type="text" class="form-control" name = "email_address"/>
+                                                    <div class="label"  placeholder="joshdoe@email.com">Username</div>
+                                                    <input type="text" class="form-control" id="username" name = "username"/>
                                                 </div>
                                                 
                                                 <div class="control">
                                                     <div class="label">Password</div>
-                                                    <input type="text" class="form-control" name = "password"/>
+                                                    <input type="text" class="form-control" id="password" name = "password"/>
                                                 </div>
                                                
                                                 <div align="center">
                                                     <button class="btn btn-orange">LOGIN</button>
                                                 </div>
-                                            <!-- </form>     -->
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
             </div>
         </div>
 </div>
-<!-- ------------------------------------ -->
+<!--///////////////////////////////////////////////////////-->
             <!-- registration page -->
             <div>
                     <a id="modal-registration" href="#modal-container-registration" role="button" class="btn signup" data-toggle="modal">
@@ -116,23 +116,23 @@
                                             <form method="POST" action="/api/post-data">
 
                                                 <div class="control">
-                                                    <div class="label">Name</div>
-                                                    <input type="text" class="form-control" name = "name"/>
+                                                    <div class="label">Username</div>
+                                                    <input type="text" class="form-control" name = "username"/>
                                                 </div> 
                                                  
                                                 <div class="control">
-                                                    <div class="label"  placeholder="joshdoe@email.com">Email Address</div>
-                                                    <input type="text" class="form-control" name = "email_address"/>
+                                                    <div class="label"  placeholder="joshdoe@email.com">Password</div>
+                                                    <input type="password" class="form-control" name = "password"/>
                                                 </div>
                                                 
                                                 <div class="control">
-                                                    <div class="label">Password</div>
-                                                    <input type="text" class="form-control" name = "password"/>
+                                                    <div class="label">Email</div>
+                                                    <input type="text" class="form-control" name = "email"/>
                                                 </div>
                                                
                                                <div class="control">
-                                                    <div class="label">Enter your Zip</div>
-                                                    <input type="text" class="form-control" name = "zip"/>
+                                                    <div class="label">Enter your Zipcode</div>
+                                                    <input type="text" class="form-control" name = "zipcode"/>
                                                 </div>
 
                                                 <div align="center">
@@ -146,7 +146,7 @@
                      </div>
                 </div>
             </div>
-<!-- ----------------------------- -->
+<!--///////////////////////////////////////////////////////-->
     
    
     <div class="row">
