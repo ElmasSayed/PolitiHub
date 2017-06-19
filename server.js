@@ -1,67 +1,83 @@
-var express              = require('express');
-var path                 = require('path');
-var bodyParser           = require('body-parser');
-var mongo                = require('mongodb');
-var mongoose             = require('mongoose');
-var ejs                  = require('ejs');
-var jwt                  = require('jsonwebtoken');
-var expressJWT           = require('express-jwt');
-var dataController       = require('./controllers/data-controller.js');
-var config               = require('./config/config.js')
-
-var User                 = require('./models/user.js');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
+var expressValidator = require('express-validator');
+var flash = require('connect-flash');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/userRegistry');
 var db = mongoose.connection;
 
+var routes = require('./routes/index');
+var users = require('./routes/users');
+
 // Init App
 var app = express();
 
-// JSON web token authentication setup
-app.use(expressJWT({ secret: 'yoyo im da secret yo'}).unless({path: ['/','/login','/register','/api/post-data','/api/get-data']}))
-
 // View Engine
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Set Static Folder
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-//
+// Express Session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
 
-app.get('/api/get-data', dataController.getData)
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.post('/api/post-data', dataController.postData);
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
 
-app.get('/login',function(req, res){
-	if(!req.body.username){
-		res.status(400).send('username required');
-		return;
-	}
-	if(!req.body.password){
-		res.status(400).send('password required');
-		return;
-	}
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
-	User.findOne({username: req.body.username}, function(err, user){
-		user.comparePassword(req.body.password, function(err, isMatch){
-			if (err) throw err;
-			if(!isMatch){
-				res.status(401).send('Invalid Password');
-			} else {
-				var myToken = jwt.sign({username: req.body.username}, 'yoyo im da secret yo')
-				res.status(200).json(myToken).send('/dashboard');
-				
-			}
-		})
-	})
-})
+// Connect Flash
+app.use(flash());
+
+// Global Vars
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
+
+
+
+app.use('/', routes);
+app.use('/users', users);
 
 // Set Port
 app.set('port', (process.env.PORT || 8000));
