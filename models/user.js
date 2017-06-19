@@ -7,13 +7,13 @@ var UserSchema = mongoose.Schema({
 		type: String,
 		index:true
 	},
+	email: {
+		type: String
+	},	
 	password: {
 		type: String
 	},
-	email: {
-		type: String
-	},
-	district: {
+	zip: {
 		type: String
 	}
 
