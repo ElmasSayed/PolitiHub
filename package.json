@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ElmasSayed/PolitiHub#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
@@ -33,7 +34,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-     "react": "^0.14.3",
+    "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },
   "devDependencies": {
