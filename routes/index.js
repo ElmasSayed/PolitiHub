@@ -1,6 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
+var request = require("request");
 
 // Get Homepage
 router.get('/', ensureAuthenticated, function(req, res){
@@ -9,7 +10,7 @@ router.get('/', ensureAuthenticated, function(req, res){
 
 router.get('/senate', function(req, res, next) {
 
-var request = require("request");
+
 
 var options = { method: 'GET',
   url: 'https://openstates.org/api/v1/bills/',
@@ -27,7 +28,7 @@ request(options, function (error, response, body) {
 
 	  body = JSON.parse(body);
 	  res.render('index', { body: body });	
-  		//console.log(body);
+  		console.log(body);
 });
 });
 
