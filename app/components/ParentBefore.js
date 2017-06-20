@@ -1,12 +1,14 @@
 // Include React
 var React = require("react");
 
+
 // Here we include all of the sub-components
 var Child = require("./Child");
 
 // the parent is the overall dashboard but it only actually displays the jumbrotron
 var Parent = React.createClass({
 
+   
   // Here we set a generic state associated with the number of clicks
   getInitialState: function() {
     return {
@@ -33,8 +35,8 @@ var Parent = React.createClass({
               <button className="btn btn-primary btn-lg" id="logout"> logout</button>
             <h2 >parent component renders everything in this jumbotron</h2>
             <div className="col-sm-2 jumbo-category"></div>
-            <button className="col-sm-2 btn btn-info jumbo-category">senate</button>
-            <button className="col-sm-2 btn btn-info jumbo-category">house</button>
+            <a href="/senate" className="col-sm-2 btn btn-info jumbo-category" onClick={this.transition}>Senate</a>
+            <a href="/house" className="col-sm-2 btn btn-info jumbo-category"onClick={this.transition}>House</a>
             <button className="col-sm-2 btn btn-info jumbo-category">local</button>
             <div className="col-sm-4 jumbo-category"></div>
             <br></br>
