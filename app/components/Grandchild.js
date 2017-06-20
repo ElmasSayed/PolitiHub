@@ -3,7 +3,9 @@ var React = require("react");
 
 // the grandchild is the actual posting of all the articles
 var GrandChild = React.createClass({
+ 
   render: function() {
+    console.log(this.props.data);
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
@@ -18,9 +20,12 @@ var GrandChild = React.createClass({
           {/*
             This component will display 4 times what it's parent (Child) displays
 
-                      <h1>{this.props.number}</h1>
+                      
 
           */}
+          <h1>{this.props.data.map(function(arg){
+            return (<h2>{arg.title}</h2>);
+          })}</h1>
         <button> button </button>
         </div>
       </div>
