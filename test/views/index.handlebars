@@ -1,0 +1,10 @@
+<h1>Current House Bills</h1>
+
+<ul>
+  {{#each body}}
+      <li>
+      <h2>{{this.bill_id}}</h2>
+      <h3>Title: {{this.title}}</h3>
+      </li>
+  {{/each}}
+</ul>
