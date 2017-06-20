@@ -47,7 +47,10 @@ router.post('/register', function(req, res){
 
 		User.createUser(newUser, function(err, user){
 			if(err) throw err;
+			
 			console.log(user);
+
+			///res.cookie("cookiename",user._id)
 		});
 
 		req.flash('success_msg', 'You are registered and can now login');
@@ -80,7 +83,7 @@ passport.serializeUser(function(user, done) {
 
 
     // var key = {
-    //     id: user.id,
+    //     _id: user.id,
     //      type: user.age
     // }
     // done(null, key);
