@@ -5,6 +5,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/user');
 
+// var db = require("./models");
+
 // Register
 router.get('/register', function(req, res){
 	res.render('register');
@@ -74,13 +76,28 @@ passport.use(new LocalStrategy(
   }));
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  	done(null, user.id);
+
+
+    // var key = {
+    //     id: user.id,
+    //      type: user.age
+    // }
+    // done(null, key);
+
 });
 
 passport.deserializeUser(function(id, done) {
-  User.getUserById(id, function(err, user) {
-    done(err, user);
-  });
+    User.getUserById(id, function(err, user) {
+      done(err, user);
+    });
+
+	// db.User.findOne({ where: { id: key.id } }).then(function(user) {
+ //        done(null, user);
+ //    }).error(function(err) {
+ //        done(err, null);
+ //    });
+
 });
 
 router.post('/login',
