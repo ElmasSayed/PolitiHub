@@ -23,7 +23,7 @@ router.post('/register', function(req, res){
 	var zip = req.body.zip;
 
 	// Validation
-	req.checkBody('username', 'Name is required').notEmpty();
+	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('password', 'A password is required').notEmpty();
@@ -93,8 +93,10 @@ router.get('/logout', function(req, res){
 	req.logout();
 
 	req.flash('success_msg', 'You are logged out');
+	req.session.destroy(function(err) {
+        res.redirect("/users/login");
+ 	});
 
-	res.redirect('/users/login');
 });
 
 module.exports = router;
