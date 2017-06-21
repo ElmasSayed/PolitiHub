@@ -144,3 +144,14 @@
 		.profile-action{
 		    margin-left: 5px;
 		}
+
+		/*Joe Added 6/20 to keep grandchile text in the div*/
+
+        .render-container{
+            max-height: 85vh;
+        }
+
+        .render-h1{
+            max-height: 65vh;
+            overflow: scroll;
+        }		
