@@ -14,7 +14,7 @@ var UserSchema = mongoose.Schema({
 		type: String
 	},
 	zip: {
-		type: String
+		type: Number
 	}
 
 });
