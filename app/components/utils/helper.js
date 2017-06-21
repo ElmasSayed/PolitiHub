@@ -79,7 +79,7 @@ var helpers = {
 		console.log(query);
 
 		parameter = 'geo/?lat=34.16&long=-118.4';
-		url = 'openstates.org/api/v1/legislators/${parameter}';
+		url = 'https://openstates.org/api/v1/legislators/${parameter}';
 		key = 'cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf';
 
 		request(options, function (error, response, body) {
