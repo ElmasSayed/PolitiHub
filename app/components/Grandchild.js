@@ -5,6 +5,9 @@ var React = require("react");
 var GrandChild = React.createClass({
  
   render: function() {
+
+  filteredArray= this.props.data.filter
+
     console.log(this.props.data);
     return (
     <div className="row grandchild">
@@ -20,10 +23,11 @@ var GrandChild = React.createClass({
             This component will display 4 times what it's parent (Child) displays
           */}
           <div className="grandchild-title-div">
+            {this.props.text}
             <ol>
               {
-                this.props.data.map(function(arg){
-                  if (categories=== "house" || "senate"){
+                filteredArray.map((arg) => {
+                  if (this.props.categories === "house" || "senate"){
                    return (
                       <li className="grandchild-title">
                       <a href={arg.govtrack_url} target="_blank">{arg.title}</a>
