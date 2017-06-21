@@ -20,19 +20,14 @@ var Parent = React.createClass({
   },
 
   componentDidMount: function() {
-    // var parameter = 'introduced';
-    // var key = '&apikey=yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8';
-    // var url = 'https://api.propublica.org/congress/v1/115/house/bills/${parameter}.json${key}';
-    
-   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-    console.log(data);
-    this.setState({data: data.data}) 
-   }.bind(this));
+
    },
   // Whenever the button is clicked we'll use setState to add to the clickCounter
   // Note the syntax for setting the state
-  handleClick: function() {
-    this.setState({ categories: this.state.categories});
+  handleClick: function(event) {
+    event.preventDefault();
+    this.setState({ categories: this.state.event.target.getAttribute('data-value')});
+    console.log(this.state.categories);
   },
   // Whenever the button is clicked we'll use setState to reset the clickCounter
   // This will reset the categories -- and it will be passed  ALL children
@@ -68,10 +63,10 @@ var Parent = React.createClass({
                       <ComponentName propName={propValue} />
                     */}
                     <div id="tabs" className="btn btn-group-justified">
-                        <a className="btn categories" onClick={this.handleClick}>House</a>
-                        <a className="btn categories" onClick={this.handleClick}>Senate</a>
-                        <a className="btn categories" onClick={this.handleClick}>State</a>
-                        <a className="btn categories" onClick={this.handleClick}>Local</a>
+                        <a className="btn categories" data-value="House" onClick={this.handleClick}>House</a>
+                        <a className="btn categories" data-value="Senate" onClick={this.handleClick}>Senate</a>
+                        <a className="btn categories" data-value="State" onClick={this.handleClick}>State</a>
+                        <a className="btn categories" data-value="Local" onClick={this.handleClick}>Local</a>
                     </div>
                 </div>
             </div>
