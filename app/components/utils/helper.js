@@ -75,10 +75,7 @@ var helpers = {
     // var key = '&apikey=yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8';
     // var url = 'https://api.propublica.org/congress/v1/115/house/bills/${parameter}.json${key}';	
 
-	 //    Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-	 //    console.log(data);
-	 //    this.setState({data: data.data}) 
-	 //   	}.bind(this));
+
 			
 	},
 
