@@ -44,7 +44,6 @@ var Parent = React.createClass({
   render: function() {
     return (
       <div className="container-fluid parent">
-       
         <div className="container-fluid">
             <div className="row col-md-12 button-row">
                 <div className="elmasAA">
@@ -78,7 +77,6 @@ var Parent = React.createClass({
         </div>
 
         <Child data={this.state.data} category={this.state.categories} />
-
       </div>
 
     );
