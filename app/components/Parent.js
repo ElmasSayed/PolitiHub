@@ -77,7 +77,7 @@ var Parent = React.createClass({
             </div>
         </div>
 
-        <Child data={this.state.data} />
+        <Child data={this.state.data} category={this.state.categories} />
 
       </div>
 
