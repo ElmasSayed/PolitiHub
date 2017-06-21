@@ -4,11 +4,21 @@ var React = require("react");
 // the grandchild is the actual posting of all the articles
 var GrandChild = React.createClass({
  
-  render: function() {
+getInitialState: function(){
+  return { text : this.props.text };
+},
 
-  filteredArray= this.props.data.filter
+render: function() {
+   console.log("reaching inside gchild render");
 
-    console.log(this.props.data);
+var filtered = this.state.data.filter((data) => {
+      if (data.slug.toLowerCase().indexOf(this.state.text.toLowerCase()) != -1)
+        return true;
+      else
+        return false;
+    });
+
+   console.log(this.props.data);
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
