@@ -9,6 +9,14 @@ getInitialState: function(){
 },
   render: function() {
 
+    var filteredArray = this.props.data.filter((data) => {
+      if (data.title.toLowerCase().indexOf(this.props.text.toLowerCase()) != -1)
+        return true;
+      else
+        return false;
+    });
+
+
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
@@ -25,23 +33,16 @@ getInitialState: function(){
           */}
           <div className="grandchild-title-div">
           {this.props.text}
-              <ol>
-              {
-                this.props.data.map((arg) => {
-                  if (this.props.categories == "House" || "Senate"){
-                   return (
-                      <li className="grandchild-title">
-                      <a href={arg.govtrack_url} target="_blank">{arg.title}</a>
-                      </li>);
-                  } else {
-                      return (
-                      <li className="grandchild-title">
-                      <a href="https://openstates.org/ca/bills/{arg.session}/{arg.bill_id}/" target="_blank">{arg.title}</a>
-                      </li>);
-                  }
+              {filteredArray.map(function(bill, index){
+                  return (<div key={index} className="panel panel-default">
+                    <div className="panel-heading">
+                    <h3 className="panel-title" >{bill.bill_id}</h3>
+                    </div>
+                    <p className="panel-body">{bill.title}</p>
+                    <button className=".btn-info" ><a href="http://api.fdsys.gov/link?collection=bills&billtype={bill.bill_type}&billversion=ih&billnum={bill.number}&congress=115" target="_blank">View Bill</a></button>
+                    </div>);
                 })
               }
-            </ol>
           </div>
          
         </div>
