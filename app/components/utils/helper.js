@@ -11,16 +11,17 @@ var helpers = {
 
     runHouse: function(query) {
 
-
         return axios({
             "method": "GET",
             "url": "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
             "headers": {
-                "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-            }
+                "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
+            } 
         }).then(function(data) {
-            console.log(data);
-            return data
+
+            console.log(data.data.results[0].bills);
+            return data.data.results[0].bills;
+        
         }).catch(function(error) {
             console.log(error);
         });
@@ -30,13 +31,15 @@ var helpers = {
 
         return axios({
             "method": "GET",
-            "url": "https://api.propublica.org/congress/v1/115/senate/bills/passed.json",
+            "url": "https://api.propublica.org/congress/v1/115/senate/bills/introduced.json",
             "headers": {
-                "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
+                "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
             }
         }).then(function(data) {
-            console.log(data);
-            return data
+
+			console.log(data.data.results[0].bills);
+            return data.data.results[0].bills;
+
         }).catch(function(error) {
             console.log(error);
         });
@@ -71,50 +74,6 @@ var helpers = {
         })
     }
 
-
-
-    	    // if(current == "House"){
-    //     Axios({
-    //         "method": "GET",
-    //         "url": "https://api.propublica.org/congress/v1/115/house/bills/passed.json",
-    //         "headers": {
-    //             "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-    //         } 
-    //     }).then(function(data) {
-    //         console.log(data);
-    //         return data
-    //     }).catch(function(error) {
-    //         console.log(error);
-    //     });
-    
-    // }
-    // if(current == "Senate"){
-
-    //     Axios({
-    //       method: 'post',
-    //       url: 'https://api.propublica.org/congress/v1/115/senate/bills/introduced.json',
-    //       headers: {
-    //       "X-API-Key": 'yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8'
-    //       }
-    //     }).then(function(data){
-    //       console.log("promise console log")
-    //     this.setState({data: data.data}) 
-    //     }.bind(this));
-
-    // }if(current == "State"){
-
-    //   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-    //    this.setState({data: data.data}) 
-    //   }.bind(this));
-
-    // }
-    // if(current == "Local"){
-
-    //   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-    //   this.setState({data: data.data}) 
-    //   }.bind(this));
-
-    // }
 }
 
 module.exports = helpers;
