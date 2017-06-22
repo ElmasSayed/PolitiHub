@@ -10,7 +10,6 @@ var key;
 var helpers = {
 
     runHouse: function(query) {
-
         return axios({
             "method": "GET",
             "url": "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
@@ -22,6 +21,7 @@ var helpers = {
             console.log(data.data.results[0].bills);
             return data.data.results[0].bills;
         
+
         }).catch(function(error) {
             console.log(error);
         });
@@ -31,6 +31,7 @@ var helpers = {
 
         return axios({
             "method": "GET",
+
             "url": "https://api.propublica.org/congress/v1/115/senate/bills/introduced.json",
             "headers": {
                 "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
@@ -39,6 +40,7 @@ var helpers = {
 
 			console.log(data.data.results[0].bills);
             return data.data.results[0].bills;
+
 
         }).catch(function(error) {
             console.log(error);

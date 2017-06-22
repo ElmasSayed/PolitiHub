@@ -2,7 +2,6 @@
 var React = require("react");
 
 var GrandChild = React.createClass({
-
  
   render: function() {
 
@@ -20,6 +19,7 @@ var GrandChild = React.createClass({
 
           <div className="grandchild-title-div">
             <ol>
+
               {
                 this.props.data.map((arg) => {
                   if (this.props.categories == "House" || "Senate"){

@@ -21,7 +21,9 @@ var Child = React.createClass({
       </div>
       </div>
          <div className="col-sm-9">
+
           <GrandChild data={this.props.data} categories={this.props.categories} />
+
          </div>
      </div>
    

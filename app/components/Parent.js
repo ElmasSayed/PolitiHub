@@ -16,6 +16,7 @@ var Parent = React.createClass({
     };
   },
 
+
   componentWillUnmount: function() {
     this.serverRequest.abort();
   },
@@ -29,14 +30,17 @@ var Parent = React.createClass({
     var current = event.target.getAttribute('data-value');
 
     if(current == "House"){
+
       helpers.runHouse().then(function(billData){
       this.setState({ data : billData});
+
     }.bind(this));
     
     }
     if(current == "Senate"){
       helpers.runSenate().then(function(billData){
       this.setState({ data : billData});
+
     }.bind(this));
        
 
