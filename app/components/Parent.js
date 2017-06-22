@@ -12,12 +12,17 @@ var Parent = React.createClass({
   getInitialState: function() {
     return {
       categories: 'State',
-      data: []
+      data: [],
+
     };
   },
+  // componentDidMount: function(){
+  //   var currentUser = document.getElementById('zip').getAttribute('data-value');
+  // },
 
   componentWillUnmount: function() {
     this.serverRequest.abort();
+
   },
 
   handleClick: function(event) {
@@ -36,6 +41,7 @@ var Parent = React.createClass({
     }
     if(current == "Senate"){
       helpers.runSenate().then(function(billData){
+
       this.setState({ data : billData.data});
     }.bind(this));
        
@@ -44,15 +50,14 @@ var Parent = React.createClass({
         helpers.runState().then(function(billData){
       console.log(billData);
       this.setState({ data : billData.data});
-      console.log ( billData.data);
     }.bind(this));
-      
+       
     }
     if(current == "Local"){
       helpers.runLocal().then(function(billData){
       console.log(billData);
       this.setState({ data : billData.data});
-      console.log ( billData.data);
+      //console.log ( billData.data);
     }.bind(this));
 
     }

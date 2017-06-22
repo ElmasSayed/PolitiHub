@@ -5,17 +5,15 @@ var React = require("react");
 var GrandChild = React.createClass({
    
 getInitialState: function(){
-  return { text : this.props.text };
+  return { 
+
+    text : this.props.text,
+    newCall: this.props.newCall
+
+  }
+
 },
   render: function() {
-
-    var filteredArray = this.props.data.filter((data) => {
-      if (data.title.toLowerCase().indexOf(this.props.text.toLowerCase()) != -1)
-        return true;
-      else
-        return false;
-    });
-
 
     return (
     <div className="row grandchild">
@@ -33,16 +31,31 @@ getInitialState: function(){
           */}
 
           <div className="grandchild-title-div">
-          {this.props.text}
-              {filteredArray.map(function(bill, index){
-                  return (<div key={index} className="panel panel-default">
-                    <div className="panel-heading">
-                    <h3 className="panel-title" >{bill.bill_id}</h3>
-                    </div>
-                    <p className="panel-body">{bill.title}</p>
-                    <button className=".btn-info" ><a href={"https://openstates.org/" + bill.state} target="_blank" >View Bill</a></button>
-                    </div>);
-                })
+          {this.props.text} 
+          {
+            this.props.newCall.map(function(filteredBill, index){
+            return (<div key={index} className="panel panel-default">
+                          <div className="panel-heading">
+                          <h3 className="panel-title" >Bill Name: {filteredBill.bill_id} </h3>
+                          </div>
+                          <p className="panel-body">{filteredBill.title}</p>
+                        <button className=".btn-info" ><a href={'https://openstates.org/' + filteredBill.state + '/bills/' +filteredBill.session + '/' +filteredBill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
+                        </div>);
+            })
+          }
+          {
+                
+               this.props.data.map(function(bill, index){
+                
+               return (<div key={index} className="panel panel-default">
+                          <div className="panel-heading">
+                          <h3 className="panel-title" >Bill Name: {bill.bill_id}</h3>
+                          </div>
+                          <p className="panel-body">{bill.title}</p>
+                          <button className=".btn-info" ><a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
+                          </div>);
+              })
+
               }
           </div>
          
