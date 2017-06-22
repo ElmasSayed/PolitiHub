@@ -11,7 +11,7 @@ var Parent = React.createClass({
 
   getInitialState: function() {
     return {
-      categories: 'State',
+      categories: '',
       data: []
     };
   },
@@ -30,29 +30,25 @@ var Parent = React.createClass({
 
     if(current == "House"){
       helpers.runHouse().then(function(billData){
-      this.setState({ data : billData});
+      this.setState({ data : billData.data});
     }.bind(this));
     
     }
     if(current == "Senate"){
       helpers.runSenate().then(function(billData){
-      this.setState({ data : billData});
+      this.setState({ data : billData.data});
     }.bind(this));
        
 
     }if(current == "State"){
         helpers.runState().then(function(billData){
-      console.log(billData);
       this.setState({ data : billData.data});
-      console.log ( billData.data);
     }.bind(this));
       
     }
     if(current == "Local"){
       helpers.runLocal().then(function(billData){
-      console.log(billData);
       this.setState({ data : billData.data});
-      console.log ( billData.data);
     }.bind(this));
 
     }
@@ -60,7 +56,7 @@ var Parent = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.categories, "state");
+
     return (
       <div className="container-fluid parent">
        

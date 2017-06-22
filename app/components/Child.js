@@ -8,12 +8,12 @@ var GrandChild = require("./GrandChild");
 var Child = React.createClass({
     getInitialState: function() {
     return {
-      text: ""
+      text: "",
+      filteredArray: []
     };
   },
 
   updateText: function(event){
-  console.log("printing in the create class function of child");
 
     this.setState({
       text: event.target.value,
@@ -21,6 +21,7 @@ var Child = React.createClass({
   },
   
   render: function() {
+
     return (
     <div className="row child main-area">
       <div className="col-sm-3 filter-box">
@@ -48,111 +49,111 @@ var Child = React.createClass({
               
               <tbody>
                 <tr>                 
-                  <td><a className="list-group-item" href="#Appropriation">Appropriation</a></td>
+                  <td><a className="list-group-item" data-value="appropriation" href="#Appropriation">Appropriation</a></td>
                 </tr>
                 <tr>
-                  <td><a className="list-group-item" href="#Art">Art</a>  </td>
+                  <td><a className="list-group-item" data-value="art" href="#Art">Art</a>  </td>
                   
                 </tr>
                 <tr>
-                 <td><a className="list-group-item" href="#Budget">Budget</a></td>
+                 <td><a className="list-group-item" data-value="budget" href="#Budget">Budget</a></td>
                </tr>
               <tr>
-                <td><a className="list-group-item" href="#Business">Business</a></td>
+                <td><a className="list-group-item" data-value="business" href="#Business">Business</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#forms">Forms</a></td>
+                <td><a className="list-group-item" data-value="forms" href="#forms">Forms</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Commerce">Commerce</a></td>
+                <td><a className="list-group-item" data-value="commerce" href="#Commerce">Commerce</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Education">Education</a></td>
+                <td><a className="list-group-item" data-value="education" href="#Education">Education</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Employment">Employment</a></td>
+                <td><a className="list-group-item" data-value="employment" href="#Employment">Employment</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Energy">Energy</a></td>
+                <td ><a className="list-group-item" data-value="energy" href="#Energy"></a>Energy></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Environmental">Environmental</a></td>
+                <td><a className="list-group-item" data-value="environmental" href="#Environmental">Environmental</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Executive Branch">Executive Branch</a></td>
+                <td><a className="list-group-item" data-value="executive" href="#Executive Branch">Executive Branch</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Grants">Grants</a></td>
+                <td><a className="list-group-item" data-value="grants" href="#Grants">Grants</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Healthcare">HealthcareHomelessness</a></td>
+                <td><a className="list-group-item" data-value="healthcare" href="#Healthcare">Healthcare</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Homelessness">Homelessness</a></td>
+                <td><a className="list-group-item" data-value="homelessness" href="#Homelessness">Homelessness</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Housing and Property">Housing and Property</a></td>
+                <td ><a className="list-group-item" data-value="housing" href="#Housing and Property">Housing and Property</a></td>
               </tr>
               <tr>
-                <td> <a className="list-group-item" href="#Immigration">Immigration</a></td>
+                <td> <a className="list-group-item" data-value="immigration" href="#Immigration">Immigration</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Indigenous Peoples">Indigenous Peoples</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Indigenous Peoples">Indigenous Peoples</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Infrastructure">Infrastructure</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Infrastructure">Infrastructure</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Judicial">Judicial</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Judicial">Judicial</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Labor">Labor</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Labor">Labor</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Legislatives">Legislative</a></td>
+                <td ><a className="list-group-item" data-value="welfare" href="#Legislatives">Legislative</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#LGBT">LGBT</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#LGBT">LGBT</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Military">Military</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Military">Military</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Municipal">Municipal</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Municipal">Municipal</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Public Services">Public Services</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Public Services">Public Services</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Religion">Religion</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Religion">Religion</a></td>
               </tr>
               
               <tr>
-                <td><a className="list-group-item" href="#Reproductive Health">Reproductive Health</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Reproductive Health">Reproductive Health</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Social">Social</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Social">Social</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Spending">Spending</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Spending">Spending</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#State Agencies">State Agencies</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#State Agencies">State Agencies</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Taxes">Taxes</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Taxes">Taxes</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Technology">Technology</a></td>
+                <td ><a className="list-group-item" data-value="welfare" href="#Technology">Technology</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Transportation">Transportation</a></td>
+                <td><a className="list-group-item" data-value="welfare" href="#Transportation">Transportation</a></td>
               </tr>
               <tr>
-               <td><a className="list-group-item" href="#Voting rights">Voting rights</a></td>
+               <td><a className="list-group-item" data-value="welfare" href="#Voting rights">Voting rights</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Welfare">Welfare</a>/</td>
+                <td><a className="list-group-item" data-value="welfare" href="#Welfare">Welfare</a>/</td>
               </tr>
               
               </tbody>
@@ -166,7 +167,7 @@ var Child = React.createClass({
      </div>
 
          <div className="col-sm-9">
-          <GrandChild data={this.props.data} category={this.props.categories} text={this.state.text} />
+          <GrandChild data={this.props.data} categories={this.props.categories} text={this.state.text} />
         </div>
    </div>
     );
