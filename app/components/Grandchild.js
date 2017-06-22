@@ -23,8 +23,8 @@ var GrandChild = React.createClass({
           <div className="grandchild-title-div">
             <ol>
             {
-              this.props.data.map(function(arg){
-               return (<li className="grandchild-title">
+              this.props.data.map(function(arg, index){
+               return (<li key={index} className="grandchild-title">
                         <a href="https://openstates.org/ca/bills/{arg.session}/{arg.bill_id}/" target="_blank">{arg.title}</a>
                         </li>);
               })

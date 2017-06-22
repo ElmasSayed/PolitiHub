@@ -6,6 +6,8 @@ var GrandChild = require("./GrandChild");
 
 // the child is the componenent that takes up all the space under the jumbotron in parent but only displays actual content on the left third of the page
 var Child = React.createClass({
+
+  console.log(this.props.state);
   render: function() {
     return (
     <div className="row child main-area">

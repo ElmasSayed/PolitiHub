@@ -6,19 +6,15 @@ var helpers = require("./utils/helper");
 // Here we include all of the sub-components
 var Child = require("./Child");
 
-// the parent is the overall dashboard but it only actually displays the jumbrotron
 var Parent = React.createClass({
 
-  // Here we set a generic state associated with the number of clicks
+
   getInitialState: function() {
     return {
       categories: '',
       data: []
     };
   },
-
-  // Initially, nothing no apis will be called and nothing will be loaded to the screen. Once a tab is clicked,
-  // we will call the appropriate api and render it to the screen.
 
   handleClick: function(event) {
 
@@ -29,47 +25,80 @@ var Parent = React.createClass({
     var current = event.target.getAttribute('data-value');
 
     if(current == "House"){
-        Axios({
-            "method": "GET",
-            "url": "https://api.propublica.org/congress/v1/115/house/bills/passed.json",
-            "headers": {
-                "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-            } 
-        }).then(function(data) {
-            console.log(data);
-            return data
-        }).catch(function(error) {
-            console.log(error);
-        });
+       helpers.runHouse().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
     
     }
     if(current == "Senate"){
-
-        Axios({
-          method: 'post',
-          url: 'https://api.propublica.org/congress/v1/115/senate/bills/introduced.json',
-          headers: {
-          "X-API-Key": 'yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8'
-          }
-        }).then(function(data){
-          console.log("promise console log")
-        this.setState({data: data.data}) 
-        }.bind(this));
+      helpers.runSenate().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+       
 
     }if(current == "State"){
-
-      Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-       this.setState({data: data.data}) 
-      }.bind(this));
-
+        helpers.runState().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+      
     }
     if(current == "Local"){
-
-      Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-      this.setState({data: data.data}) 
-      }.bind(this));
+      helpers.runLocal().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
 
     }
+
+    // if(current == "House"){
+    //     Axios({
+    //         "method": "GET",
+    //         "url": "https://api.propublica.org/congress/v1/115/house/bills/passed.json",
+    //         "headers": {
+    //             "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
+    //         } 
+    //     }).then(function(data) {
+    //         console.log(data);
+    //         return data
+    //     }).catch(function(error) {
+    //         console.log(error);
+    //     });
+    
+    // }
+    // if(current == "Senate"){
+
+    //     Axios({
+    //       method: 'post',
+    //       url: 'https://api.propublica.org/congress/v1/115/senate/bills/introduced.json',
+    //       headers: {
+    //       "X-API-Key": 'yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8'
+    //       }
+    //     }).then(function(data){
+    //       console.log("promise console log")
+    //     this.setState({data: data.data}) 
+    //     }.bind(this));
+
+    // }if(current == "State"){
+
+    //   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
+    //    this.setState({data: data.data}) 
+    //   }.bind(this));
+
+    // }
+    // if(current == "Local"){
+
+    //   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
+    //   this.setState({data: data.data}) 
+    //   }.bind(this));
+
+    // }
 
   },
 
