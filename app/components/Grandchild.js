@@ -15,33 +15,29 @@ getInitialState: function(){
       
       <div className="panel panel-default ">
         <div className="panel-heading">
-          <h3 className="panel-title">this is where the legislation is posted</h3>
+          <h3 className="panel-title">LEGISLATIONS</h3>
         </div>
         <div className="panel-body">
-        <h3> HB 2017 </h3>
-        <h5> here we have a description of what the legislation will be, taken from the 'title' of the api </h5>
+      
+        
           {/*
             This component will display 4 times what it's parent (Child) displays
           */}
-          <div className="grandchild-title-div">
-          {this.props.text}
-              <ol>
-              {
-                this.props.data.map((arg) => {
-                  if (this.props.categories == "House" || "Senate"){
-                   return (
-                      <li className="grandchild-title">
-                      <a href={arg.govtrack_url} target="_blank">{arg.title}</a>
-                      </li>);
-                  } else {
-                      return (
-                      <li className="grandchild-title">
-                      <a href="https://openstates.org/ca/bills/{arg.session}/{arg.bill_id}/" target="_blank">{arg.title}</a>
-                      </li>);
-                  }
-                })
+     <div className="grandchild-title-div">
+            {this.props.text}
+            {
+                  
+               this.props.data.map(function(bill, index){
+               return (<div key={index} className="panel panel-default">
+                          <div className="panel-heading">
+                          <h3 className="panel-title" >{bill.bill_id}</h3>
+                          </div>
+                          <p className="panel-body">{bill.title}</p>
+                        <button className=".btn-info" ><a href="http://api.fdsys.gov/link?collection=bills&billnum={bill.bill_id}&congress=115" target="_blank">View Bill</a></button>
+                        </div>);
+              
+              })
               }
-            </ol>
           </div>
          
         </div>
