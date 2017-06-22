@@ -39,7 +39,7 @@ getInitialState: function(){
                     <h3 className="panel-title" >{bill.bill_id}</h3>
                     </div>
                     <p className="panel-body">{bill.title}</p>
-                    <button className=".btn-info" ><a href="http://api.fdsys.gov/link?collection=bills&billtype={bill.bill_type}&billversion=ih&billnum={bill.number}&congress=115" target="_blank">View Bill</a></button>
+                    <button className=".btn-info" ><a href={"https://openstates.org/" + bill.state} target="_blank" >View Bill</a></button>
                     </div>);
                 })
               }
