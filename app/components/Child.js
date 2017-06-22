@@ -1,5 +1,7 @@
 // Include React
 var React = require("react");
+var axios = require("axios");
+
 
 // Here we include all of the sub-components
 var GrandChild = require("./GrandChild");
@@ -8,7 +10,8 @@ var GrandChild = require("./GrandChild");
 var Child = React.createClass({
     getInitialState: function() {
     return {
-      text: ""
+      text: "",
+      newCall: []
     };
   },
 
@@ -18,6 +21,338 @@ var Child = React.createClass({
     this.setState({
       text: event.target.value,
     });
+  },
+
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
+
+  handleClick: function(event) {
+    
+
+    event.preventDefault();
+
+    this.setState({ categories: event.target.getAttribute('data-value')});
+
+    var current = event.target.getAttribute('data-value');
+    var parameter;
+        
+    if(current == "Appropriation"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Art"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf').then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    
+    }
+    if(current == "Appropriation"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    
+    }
+    if(current == "Budget"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    
+    }
+    if(current == "Business"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Commerce"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Education"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Employment"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Energy"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Environmental"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    
+    }
+    if(current == "Executive Branch"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Education"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Forms"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Grants"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Healthcare"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Homelessness"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Housing and Property"){
+       parameter = str.trim(current);
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Immigration"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Indigenous Peoples"){
+       parameter = str.trim(current);
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Infrastructure"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Judicial"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Labor"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Legislative"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "LGBT"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Military"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Municipal"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Public Services"){
+       parameter = str.trim(current);
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Religion"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Reproductive Health"){
+       parameter = str.trim(current);
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Social"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Spending"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Spending"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "State Agencies"){
+       parameter = str.trim(current);
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Taxes"){
+       parameter = current;
+     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Technology"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Transportation"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Voting Rights"){
+       parameter = str.trim(current);
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
+    if(current == "Welfare"){
+       parameter = current;
+      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+        ).then(function(response){
+        console.log(response);
+        this.setState({ newCall : response.data});
+      }.bind(this));
+    }
   },
   
   render: function() {
@@ -48,111 +383,111 @@ var Child = React.createClass({
               
               <tbody>
                 <tr>                 
-                  <td><a className="list-group-item" href="#Appropriation">Appropriation</a></td>
+                  <td><a className="list-group-item" data-value="Appropriation" onClick={this.handleClick}>Appropriation</a></td>
                 </tr>
                 <tr>
-                  <td><a className="list-group-item" href="#Art">Art</a>  </td>
+                  <td><a className="list-group-item" data-value="Art" onClick={this.handleClick} >Art</a></td>
                   
                 </tr>
                 <tr>
-                 <td><a className="list-group-item" href="#Budget">Budget</a></td>
+                 <td><a className="list-group-item" data-value="Budget" onClick={this.handleClick}>Budget</a></td>
                </tr>
               <tr>
-                <td><a className="list-group-item" href="#Business">Business</a></td>
+                <td><a className="list-group-item" data-value="Business" onClick={this.handleClick}>Business</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#forms">Forms</a></td>
+                <td><a className="list-group-item" data-value="Forms" onClick={this.handleClick}>Forms</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Commerce">Commerce</a></td>
+                <td><a className="list-group-item" data-value="Commerce" onClick={this.handleClick}>Commerce</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Education">Education</a></td>
+                <td><a className="list-group-item" data-value="Education" onClick={this.handleClick}>Education</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Employment">Employment</a></td>
+                <td><a className="list-group-item" data-value="Employment" onClick={this.handleClick}>Employment</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Energy">Energy</a></td>
+                <td ><a className="list-group-item" data-value="Energy" onClick={this.handleClick}>Energy</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Environmental">Environmental</a></td>
+                <td><a className="list-group-item" data-value="Environmental" onClick={this.handleClick}>Environmental</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Executive Branch">Executive Branch</a></td>
+                <td><a className="list-group-item" data-value="Executive Branch" onClick={this.handleClick}>Executive Branch</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Grants">Grants</a></td>
+                <td><a className="list-group-item" data-value="Grants" onClick={this.handleClick}>Grants</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Healthcare">HealthcareHomelessness</a></td>
+                <td><a className="list-group-item" data-value="Healthcare" onClick={this.handleClick}>Healthcare</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Homelessness">Homelessness</a></td>
+                <td><a className="list-group-item" data-value="Homelessness" onClick={this.handleClick}>Homelessness</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Housing and Property">Housing and Property</a></td>
+                <td ><a className="list-group-item" data-value="Housing and Property" onClick={this.handleClick}>Housing and Property</a></td>
               </tr>
               <tr>
-                <td> <a className="list-group-item" href="#Immigration">Immigration</a></td>
+                <td> <a className="list-group-item" data-value="Immigration" onClick={this.handleClick}>Immigration</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Indigenous Peoples">Indigenous Peoples</a></td>
+                <td><a className="list-group-item" data-value="Indigenous Peoples" onClick={this.handleClick}>Indigenous Peoples</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Infrastructure">Infrastructure</a></td>
+                <td><a className="list-group-item" data-value="Infrastructure" onClick={this.handleClick}>Infrastructure</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Judicial">Judicial</a></td>
+                <td><a className="list-group-item" data-value="Judicial" onClick={this.handleClick}>Judicial</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Labor">Labor</a></td>
+                <td><a className="list-group-item" data-value="Labor" onClick={this.handleClick}>Labor</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Legislatives">Legislative</a></td>
+                <td ><a className="list-group-item" data-value="Legislatives" onClick={this.handleClick}>Legislative</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#LGBT">LGBT</a></td>
+                <td><a className="list-group-item" data-value="LGBT" onClick={this.handleClick}>LGBT</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Military">Military</a></td>
+                <td><a className="list-group-item" data-value="Military" onClick={this.handleClick}>Military</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Municipal">Municipal</a></td>
+                <td><a className="list-group-item" data-value="Municipal" onClick={this.handleClick}>Municipal</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Public Services">Public Services</a></td>
+                <td><a className="list-group-item" data-value="Public Services" onClick={this.handleClick}>Public Services</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Religion">Religion</a></td>
+                <td><a className="list-group-item" data-value="Religion" onClick={this.handleClick}>Religion</a></td>
               </tr>
               
               <tr>
-                <td><a className="list-group-item" href="#Reproductive Health">Reproductive Health</a></td>
+                <td><a className="list-group-item" data-value="Reproductive Health" onClick={this.handleClick}>Reproductive Health</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Social">Social</a></td>
+                <td><a className="list-group-item" data-value="Social" onClick={this.handleClick}>Social</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Spending">Spending</a></td>
+                <td><a className="list-group-item" data-value="Spending" onClick={this.handleClick}>Spending</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#State Agencies">State Agencies</a></td>
+                <td><a className="list-group-item" data-value="State Agencies" onClick={this.handleClick}>State Agencies</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Taxes">Taxes</a></td>
+                <td><a className="list-group-item" data-value="Taxes" onClick={this.handleClick}>Taxes</a></td>
               </tr>
               <tr>
-                <td ><a className="list-group-item" href="#Technology">Technology</a></td>
+                <td ><a className="list-group-item" data-value="Technology" onClick={this.handleClick}>Technology</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Transportation">Transportation</a></td>
+                <td><a className="list-group-item" data-value="Transportation" onClick={this.handleClick}>Transportation</a></td>
               </tr>
               <tr>
-               <td><a className="list-group-item" href="#Voting rights">Voting rights</a></td>
+               <td><a className="list-group-item" data-value="Voting rights" onClick={this.handleClick}>Voting rights</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" href="#Welfare">Welfare</a>/</td>
+                <td><a className="list-group-item" data-value="Welfare" onClick={this.handleClick}>Welfare</a>/</td>
               </tr>
               
               </tbody>
@@ -166,7 +501,7 @@ var Child = React.createClass({
      </div>
 
          <div className="col-sm-9">
-          <GrandChild data={this.props.data} category={this.props.categories} text={this.state.text} />
+          <GrandChild data={this.props.data} category={this.props.categories} text={this.state.text} newCall={this.state.newCall} />
         </div>
    </div>
     );

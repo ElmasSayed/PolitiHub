@@ -12,7 +12,8 @@ var Parent = React.createClass({
   getInitialState: function() {
     return {
       categories: 'State',
-      data: []
+      data: [],
+      
     };
   },
 
@@ -30,13 +31,13 @@ var Parent = React.createClass({
 
     if(current == "House"){
       helpers.runHouse().then(function(billData){
-      this.setState({ data : billData});
+      this.setState({ data : billData.data});
     }.bind(this));
     
     }
     if(current == "Senate"){
       helpers.runSenate().then(function(billData){
-      this.setState({ data : billData});
+      this.setState({ data : billData.data});
     }.bind(this));
        
 

@@ -11,8 +11,26 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
+var User = require("./models/user");
+var Zipcode = require("./models/zipcodes");
+
 mongoose.connect('mongodb://localhost/userRegistry');
 var db = mongoose.connection;
+
+// app.get("/api", function(req, res){
+//   User.findOne({zip}).exec(function(err, doc){
+//     if (err){
+//       console.log (err);
+//     } 
+//     else{
+//     res.send(doc);
+//   }
+//   });
+// });
+
+// app.get("/api", function(req, res){
+//   Zipcode.findOne({Zipcode: })
+// })
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -78,6 +96,7 @@ app.use(function (req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
+
 
 // Set Port
 app.set('port', (process.env.PORT || 8000));

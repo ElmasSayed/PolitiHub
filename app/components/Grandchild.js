@@ -5,10 +5,17 @@ var React = require("react");
 var GrandChild = React.createClass({
    
 getInitialState: function(){
-  return { text : this.props.text };
+  return { 
+
+    text : this.props.text,
+    newCall: this.props.newCall
+
+  }
+
 },
   render: function() {
 
+    
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
@@ -24,24 +31,30 @@ getInitialState: function(){
             This component will display 4 times what it's parent (Child) displays
           */}
           <div className="grandchild-title-div">
-          {this.props.text}
-              <ol>
-              {
-                this.props.data.map((arg) => {
-                  if (this.props.categories == "House" || "Senate"){
-                   return (
-                      <li className="grandchild-title">
-                      <a href={arg.govtrack_url} target="_blank">{arg.title}</a>
-                      </li>);
-                  } else {
-                      return (
-                      <li className="grandchild-title">
-                      <a href="https://openstates.org/ca/bills/{arg.session}/{arg.bill_id}/" target="_blank">{arg.title}</a>
-                      </li>);
-                  }
-                })
+          {this.props.text} 
+          {
+            this.props.newCall.map(function(filteredBill, index){
+            return (<div key={index} className="panel panel-default">
+                          <div className="panel-heading">
+                          <h3 className="panel-title" >Bill Name: {filteredBill.bill_id} State:{filteredBill.state}</h3>
+                          </div>
+                          <p className="panel-body">{filteredBill.title}</p>
+                        <button className=".btn-info" ><a href={'https://openstates.org/' + filteredBill.state + '/bills/' +filteredBill.session + '/' +filteredBill.bill_id + '/#billtext target="_blank"'}>View Bill</a></button>
+                        </div>);
+            })
+          }
+          {
+                
+               this.props.data.map(function(bill, index){
+               return (<div key={index} className="panel panel-default">
+                          <div className="panel-heading">
+                          <h3 className="panel-title" >Bill Name: {bill.bill_id} State:{bill.state}</h3>
+                          </div>
+                          <p className="panel-body">{bill.title}</p>
+                        <button className=".btn-info" ><a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext target="_blank"'}>View Bill</a></button>
+                        </div>);
+              })
               }
-            </ol>
           </div>
          
         </div>

@@ -1,4 +1,9 @@
 var axios = require("axios");
+var mongoose = require('mongoose');
+//var zips = db.zipDEETS;
+
+// var userZip = parseInt($("#grabZip"));
+
 
 var parameter;
 var parameter2;
@@ -9,62 +14,54 @@ var key;
 
 var helpers = {
 
-    runHouse: function(query) {
+    runHouse: function() {
 
-        return axios({
-            "method": "GET",
-            "url": "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
-            "headers": {
-                "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-            } 
-        }).then(function(data) {
 
-            console.log(data.data.results[0].bills);
-            return data.data.results[0].bills;
+        return axios('https://openstates.org/api/v1/bills/?chamber=lower&q=current&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf')
+        .then(function(data) {
+            console.log("House results:", data);
+            return data
+            
+        }).catch(function(error) {
+            console.log(error);
+        });
+    },
+
+    runSenate: function() {
+
+        return axios('https://openstates.org/api/v1/bills/?chamber=upper&q=current&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf')
+        .then(function(data) {
+            //console.log(data);
+            return data
+        }).catch(function(error) {
+            console.log(error);
+        });
+    },
+
+
+    runState: function() {
         
-        }).catch(function(error) {
-            console.log(error);
-        });
-    },
-
-    runSenate: function(query) {
-
-        return axios({
-            "method": "GET",
-            "url": "https://api.propublica.org/congress/v1/115/senate/bills/introduced.json",
-            "headers": {
-                "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-            }
-        }).then(function(data) {
-
-			console.log(data.data.results[0].bills);
-            return data.data.results[0].bills;
-
-        }).catch(function(error) {
-            console.log(error);
-        });
-    },
-
-    runState: function(query) {
-        console.log(query);
 
         parameter = 'ca'
         parameter2 = 'all'
-        var statesURL = "https://openstates.org/api/v1/bills/?state="+parameter+"&q="+parameter2+"&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf"
+        var statesURL = "https://openstates.org/api/v1/bills/?state="+parameter+"&q="+parameter2+"&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf"
 
         return axios.get(statesURL).then(function(response){
-            console.log(response);
+            //console.log(response);
             return response
         }).catch(function(error){
             console.log(error);
         });
     },
 
-    runLocal: function(query) {
-        console.log(query);
+    runLocal: function() {
 
-        parameter = 'geo/?lat=34.16&long=-118.4';
-        var statesURL = 'https://openstates.org/api/v1/legislators/'+parameter;
+        // var lat;
+        // var long;
+
+        // zips.findOne({Zipcode: userZip}, {Lat: lat, Long: long });
+
+        var statesURL = 'https://openstates.org/api/v1/legislators/geo/?lat='+lat+'&long='+long+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf';
 
         return axios.get(statesURL).then(function(response){
             console.log(response);
@@ -73,7 +70,6 @@ var helpers = {
             console.log(error);
         })
     }
-
 }
 
 module.exports = helpers;
