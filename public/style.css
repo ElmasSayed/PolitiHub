@@ -40,9 +40,7 @@
 
 		.title{
 		    font-size: 50px; 
-		    height: 100px; 
-		    margin-top:10px;
-		    padding-top: 20px; 
+		    height: 70px; 
 		    padding-left: 50px;
 		    background-color:#005fbb ; 
 		    color:white;
@@ -50,26 +48,23 @@
 		}
 
 		.logo{
-		    height:85px; 
-		    width:80px;
-		    padding-bottom: 20px;
+		    height:90px; 
+		    width:225px;
+		    padding-right:20px;
 		    float: left;
 		    margin-left: 50px;
 		}
 
-		.personal-right{
-		    float:right;
-		}
 		.personal{
 		    background-color:white;
 		    color:#005fbb ;
 		    margin-bottom: 15px;
 		    margin-right:50px;
+		    float:right;
 		}
 		.personal:hover{
 			background-color:#3d3434;
 			color:#f3f291;
-
 		}
 
 		.icons{
@@ -98,20 +93,18 @@
 	        margin-bottom: 35px;
 	        margin-right: 30px;
 	        margin-left: 30px;
-	        /*margin-top: 10px;*/
-
-		}
+	   	}
 
 		.filter-box{
 		    border:solid; 
 		    border-width: 1px; 
 		    height: 600px; 
 		    background-color: white;
-		    /*overflow-y: scroll;*/
+		
 		}
 
 		.display{
-			margin-top: 20px;
+			/*margin-top: 20px;*/
 		}
 		.display-box{
 		    border-color: white; 
@@ -119,22 +112,20 @@
 		    border-width: 1px; 
 		    height: 600px; 
 		    background-color: white;
-		    /*overflow-y: scroll;*/
 		}
-
 		.grandchild-title{
 			text-align: left;
 			font-size:24px;
 		}
 		.grandchild-title-div{
-			height:400px;
+			height:500px;
 			overflow-y: scroll;
 		}
 
 /*-------------------------------------------------------------------------*/
 /*child*/
 		.child-title-div{
-			height: 510px;
+			height: 530px;
 			text-align: left;
 			font-size:20px;
 			overflow-y: scroll;
@@ -147,65 +138,7 @@
 
 		}
 /*-----------------------------------------------------------------------*/
-		/*profile*/
-
-
-		.profile-main{
-		    height:550px; 
-		    margin-top: 30px;
-		    margin-bottom:55px; 
-		    background-color:#f6f6f6 ;
-		    box-shadow: 10px 10px 10px 10px #888888 ;
-		}
-		.profile{
-		    padding-top: 20px;
-		    padding-left: 20px
-		    height:100px; 
-		    border:solid;
-		    background-color: #f6f6f6 ;
-		    overflow-y: scroll;
-		    color:#3d3434;
-		}
-		.profile-name{
-		    margin-top:20px;
-		    font-size:30px;
-		    color:black; 
-		    margin-bottom:10px; 
-		    margin-left:20px;
-		}
-		.profile-detail{
-		    height:40px; 
-		    font-size:20px; 
-		    margin-left:20px;
-
-		}
-
-		.profile-bills-container{
-			
-		}
-		.profile-saved-bills{
-		    margin-top:0px; 
-		    margin-left:15px;
-		    /*sheight:25px;*/
-		    
-		}
-		/*.profile-bills-container{
-		    height:500px;
-		}*/
-		.profile-saved-bills-item{
-		}
-
-		.profile-saved-bills.button:hover {
-		    color: red;
-		}
-		.profile-action{
-		    margin-left: 5px;
-		}
-
-.saved-title{
-	margin-left: 50px;
-}
-
+		
 /*filter*/
 .list-group-item:first-child {
     border-top-right-radius: 4px;

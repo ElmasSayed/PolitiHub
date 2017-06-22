@@ -21,6 +21,7 @@ var helpers = {
         .then(function(data) {
             console.log("House results:", data);
             return data
+
             
         }).catch(function(error) {
             console.log(error);
@@ -30,6 +31,7 @@ var helpers = {
     runSenate: function() {
 
         return axios('https://openstates.org/api/v1/bills/?state=ca&chamber=upper&q=all&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf')
+
         .then(function(data) {
             //console.log(data);
             return data

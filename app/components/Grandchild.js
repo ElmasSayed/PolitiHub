@@ -15,21 +15,21 @@ getInitialState: function(){
 },
   render: function() {
 
-
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
       
       <div className="panel panel-default ">
         <div className="panel-heading">
-          <h3 className="panel-title">this is where the legislation is posted</h3>
+          <h3 className="panel-title">LEGISLATIONS</h3>
         </div>
         <div className="panel-body">
-        <h3> HB 2017 </h3>
-        <h5> here we have a description of what the legislation will be, taken from the 'title' of the api </h5>
+      
+        
           {/*
             This component will display 4 times what it's parent (Child) displays
           */}
+
           <div className="grandchild-title-div">
           {this.props.text} 
           {
@@ -55,6 +55,7 @@ getInitialState: function(){
                           <button className=".btn-info" ><a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
                           </div>);
               })
+
               }
           </div>
          
