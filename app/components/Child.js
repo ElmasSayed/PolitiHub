@@ -6,7 +6,24 @@ var GrandChild = require("./GrandChild");
 
 // the child is the componenent that takes up all the space under the jumbotron in parent but only displays actual content on the left third of the page
 var Child = React.createClass({
+
+// getInitialState: function(){
+//     return{
+//           arr: []
+//         };
+//     },
+
+// filter: function(searchTerm, index){
+//      var filteredArr = this.props.data.filter(function(link){
+//         console.log("Link:"+ link);
+//         return link.title.indexOf('privacy') > 0
+//       })
+//       this.setState({arr: filteredArr});
+//     },
+
+
   render: function() {
+    
     return (
     <div className="row child main-area">
     <div className="col-sm-3 filter-box">
@@ -33,7 +50,7 @@ var Child = React.createClass({
       </div>
       </div>
          <div className="col-sm-9">
-          <GrandChild data={this.props.data } />
+          <GrandChild data={this.props.data} categories={this.state.categories}/>
          </div>
      </div>
    

@@ -3,97 +3,74 @@ var axios = require("axios");
 var parameter;
 var parameter2;
 var state;
-var url; 
+var url;
 var key;
-
-var options = { method: 'GET',
-  url: url,
-  headers:
-	{ 'postman-token': 'f3df2dad-ceb0-4ccb-b54a-ab9433db0b70',
-	     'cache-control': 'no-cache',
-	     'x-api-key': key 
-	} 
-};
-
 
 
 var helpers = {
 
-	runHouse: function (query){
-
-		console.log(query);
-
-		parameter = 'introduced';
-		url = 'https://api.propublica.org/congress/v1/115/house/bills/${parameter}.json';
-		key = 'yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8';
-
-		request(options, function (error, response, body) {
-		  		if (error) throw new Error(error);
-		  		
-		  		console.log(body);
-		  		body = JSON.parse(body);
-	  			
-		
-		});
-	},
-
-	runSenate: function (query){
-			console.log(query);
-		parameter = 'senate';
-		parameter2 = 'passed';
-		url = 'https://api.propublica.org/congress/v1/115/${parameter}/bills/${parameter2}.json';
-		key = 'yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8';
-
-		request(options, function (error, response, body) {
-		  		if (error) throw new Error(error);
-		  		body = JSON.parse(body);
-	  			res.render('index', { body: body });	
-
-		  		console.log(body);
-		
-		});
-	},
-
-	runState: function (query){
-		console.log(query);
-
-		parameter = 'state=ca&q=all&';
-		url = 'https://openstates.org/api/v1/bills/?${parameter}';
-		key = 'cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf';
-
-		request(options, function (error, response, body) {
-		  		if (error) throw new Error(error);
-		  		
-		  		body = JSON.parse(body);
-	  			res.render('index', { body: body });	
-
-		  		console.log(body);
-		
-		});
+    runHouse: function(query) {
 
 
-			
-	},
+        return axios({
+            "method": "GET",
+            "url": "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
+            "headers": {
+                "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
+            }
+        }).then(function(data) {
+            console.log(data);
+            return data
+        }).catch(function(error) {
+            console.log(error);
+        });
+    },
 
-	runLocal: function (query){
-		console.log(query);
+    runSenate: function(query) {
 
-		parameter = 'geo/?lat=34.16&long=-118.4';
-		url = 'openstates.org/api/v1/legislators/${parameter}';
-		key = 'cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf';
+        return axios({
+            "method": "GET",
+            "url": "https://api.propublica.org/congress/v1/115/senate/bills/passed.json",
+            "headers": {
+                "x-api-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
+            }
+        }).then(function(data) {
+            console.log(data);
+            return data
+        }).catch(function(error) {
+            console.log(error);
+        });
+    },
 
-		request(options, function (error, response, body) {
-		  		if (error) throw new Error(error);
-		  		
-		  		body = JSON.parse(body);
-	  			res.render('index', { body: body });	
 
-		  		console.log(body);
-		
-		});
-		
+    runState: function(query) {
+        console.log(query);
 
-	}
+        parameter = 'ca'
+        parameter2 = 'all'
+        var statesURL = "https://openstates.org/api/v1/bills/?state=${parameter}&q=${parameter2}&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf"
+
+        return axios.get(statesURL).then(function(response){
+        	console.log(response);
+        	return response
+        }).catch(function(error){
+        	console.log(error);
+        });
+    },
+
+    runLocal: function(query) {
+        console.log(query);
+
+        parameter = 'geo/?lat=34.16&long=-118.4';
+        var statesURL = 'https://openstates.org/api/v1/legislators/${parameter}';
+
+        return axios.get(statesURL).then(function(response){
+        	console.log(response);
+        	return response;
+        }).catch(function(error){
+        	console.log(error);
+        })
+    }
 }
 
 module.exports = helpers;

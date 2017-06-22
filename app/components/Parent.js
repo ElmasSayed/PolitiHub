@@ -1,9 +1,9 @@
 // Include React
 var React = require("react");
-var Axios = require("axios");
+//var Axios = require("axios");
 
 
-//var helpers = require("./utils/helper");
+var helpers = require("./utils/helper");
 
 // Here we include all of the sub-components
 var Child = require("./Child");
@@ -20,28 +20,56 @@ var Parent = React.createClass({
   },
 
   componentDidMount: function() {
-    // var parameter = 'introduced';
-    // var key = '&apikey=yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8';
-    // var url = 'https://api.propublica.org/congress/v1/115/house/bills/${parameter}.json${key}';
-    
-   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-    console.log(data);
-    this.setState({data: data.data}) 
-   }.bind(this));
-   },
+   helpers.runHouse().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+  },
+
   // Whenever the button is clicked we'll use setState to add to the clickCounter
   // Note the syntax for setting the state
   handleClick: function() {
-    this.setState({ categories: this.state.categories});
-  },
-  // Whenever the button is clicked we'll use setState to reset the clickCounter
-  // This will reset the categories -- and it will be passed  ALL children
-  resetClick: function() {
-    this.setState({ categories: ''});
+    this.setState({ categories: event.target.getAttribute('data-value')});
+    
+    var current = event.target.getAttribute('data-value');
+    if(current == "House"){
+       helpers.runHouse().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+    
+    }
+    if(current == "Senate"){
+      helpers.runSenate().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+       
+
+    }if(current == "State"){
+        helpers.runState().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+      
+    }
+    if(current == "Local"){
+      helpers.runLocal().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+     
+    }
   },
 
   // Here we render the function
   render: function() {
+    
     return (
         <div className="container-fluid parent">
         <div className="row">
@@ -76,16 +104,16 @@ var Parent = React.createClass({
                   <ComponentName propName={propValue} />
                 */}
                 <div className="btn btn-group-justified">
-                    <a className="btn categories" onClick={this.handleClick}>House</a>
-                    <a className="btn categories" onClick={this.handleClick}>Senate</a>
-                    <a className="btn categories" onClick={this.handleClick}>State</a>
-                    <a className="btn categories" onClick={this.handleClick}>Local</a>
+                    <a className="btn categories" onClick={this.handleClick} data-value='House'>House</a>
+                    <a className="btn categories" onClick={this.handleClick} data-value='Senate'>Senate</a>
+                    <a className="btn categories" onClick={this.handleClick} data-value='State'>State</a>
+                    <a className="btn categories" onClick={this.handleClick} data-value='Local'>Local</a>
                 </div>
             </div>
         </div>
     </div>
 
-      <Child data={this.state.data} />
+      <Child data={this.state.data}/>
 
       </div>
 
