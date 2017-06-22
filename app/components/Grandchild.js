@@ -9,6 +9,14 @@ getInitialState: function(){
 },
   render: function() {
 
+    var filteredArray = this.props.data.filter((data) => {
+      if (data.title.toLowerCase().indexOf(this.props.text.toLowerCase()) != -1)
+        return true;
+      else
+        return false;
+    });
+
+
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
@@ -23,20 +31,18 @@ getInitialState: function(){
           {/*
             This component will display 4 times what it's parent (Child) displays
           */}
-     <div className="grandchild-title-div">
-            {this.props.text}
-            {
-                  
-               this.props.data.map(function(bill, index){
-               return (<div key={index} className="panel panel-default">
-                          <div className="panel-heading">
-                          <h3 className="panel-title" >{bill.bill_id}</h3>
-                          </div>
-                          <p className="panel-body">{bill.title}</p>
-                        <button className=".btn-info" ><a href="http://api.fdsys.gov/link?collection=bills&billnum={bill.bill_id}&congress=115" target="_blank">View Bill</a></button>
-                        </div>);
-              
-              })
+
+          <div className="grandchild-title-div">
+          {this.props.text}
+              {filteredArray.map(function(bill, index){
+                  return (<div key={index} className="panel panel-default">
+                    <div className="panel-heading">
+                    <h3 className="panel-title" >{bill.bill_id}</h3>
+                    </div>
+                    <p className="panel-body">{bill.title}</p>
+                    <button className=".btn-info" ><a href={"https://openstates.org/" + bill.state} target="_blank" >View Bill</a></button>
+                    </div>);
+                })
               }
           </div>
          
