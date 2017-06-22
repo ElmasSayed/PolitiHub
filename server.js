@@ -14,6 +14,9 @@ var mongoose = require('mongoose');
 var User = require("./models/user");
 var Zipcode = require("./models/zipcodes");
 
+
+//console.log(parent.currentUser);
+
 mongoose.connect('mongodb://localhost/userRegistry');
 var db = mongoose.connection;
 

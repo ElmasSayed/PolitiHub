@@ -15,7 +15,7 @@ getInitialState: function(){
 },
   render: function() {
 
-    
+
     return (
     <div className="row grandchild">
     <div className="col-sm-12 display-box">
@@ -36,23 +36,24 @@ getInitialState: function(){
             this.props.newCall.map(function(filteredBill, index){
             return (<div key={index} className="panel panel-default">
                           <div className="panel-heading">
-                          <h3 className="panel-title" >Bill Name: {filteredBill.bill_id} State:{filteredBill.state}</h3>
+                          <h3 className="panel-title" >Bill Name: {filteredBill.bill_id} </h3>
                           </div>
                           <p className="panel-body">{filteredBill.title}</p>
-                        <button className=".btn-info" ><a href={'https://openstates.org/' + filteredBill.state + '/bills/' +filteredBill.session + '/' +filteredBill.bill_id + '/#billtext target="_blank"'}>View Bill</a></button>
+                        <button className=".btn-info" ><a href={'https://openstates.org/' + filteredBill.state + '/bills/' +filteredBill.session + '/' +filteredBill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
                         </div>);
             })
           }
           {
                 
                this.props.data.map(function(bill, index){
+                
                return (<div key={index} className="panel panel-default">
                           <div className="panel-heading">
-                          <h3 className="panel-title" >Bill Name: {bill.bill_id} State:{bill.state}</h3>
+                          <h3 className="panel-title" >Bill Name: {bill.bill_id}</h3>
                           </div>
                           <p className="panel-body">{bill.title}</p>
-                        <button className=".btn-info" ><a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext target="_blank"'}>View Bill</a></button>
-                        </div>);
+                          <button className=".btn-info" ><a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
+                          </div>);
               })
               }
           </div>

@@ -39,7 +39,7 @@ var Child = React.createClass({
         
     if(current == "Appropriation"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -48,7 +48,7 @@ var Child = React.createClass({
     }
     if(current == "Art"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf').then(function(response){
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf').then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
       }.bind(this));
@@ -57,7 +57,7 @@ var Child = React.createClass({
     }
     if(current == "Appropriation"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -67,7 +67,7 @@ var Child = React.createClass({
     }
     if(current == "Budget"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -77,7 +77,7 @@ var Child = React.createClass({
     }
     if(current == "Business"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -86,7 +86,7 @@ var Child = React.createClass({
     }
     if(current == "Commerce"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -95,7 +95,7 @@ var Child = React.createClass({
     }
     if(current == "Education"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -104,7 +104,7 @@ var Child = React.createClass({
     }
     if(current == "Employment"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -113,7 +113,7 @@ var Child = React.createClass({
     }
     if(current == "Energy"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -122,7 +122,7 @@ var Child = React.createClass({
     }
     if(current == "Environmental"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -131,7 +131,7 @@ var Child = React.createClass({
     }
     if(current == "Executive Branch"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -139,7 +139,7 @@ var Child = React.createClass({
     }
     if(current == "Education"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -147,7 +147,7 @@ var Child = React.createClass({
     }
     if(current == "Forms"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -155,7 +155,7 @@ var Child = React.createClass({
     }
     if(current == "Grants"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -163,7 +163,7 @@ var Child = React.createClass({
     }
     if(current == "Healthcare"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -171,7 +171,7 @@ var Child = React.createClass({
     }
     if(current == "Homelessness"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -179,7 +179,7 @@ var Child = React.createClass({
     }
     if(current == "Housing and Property"){
        parameter = str.trim(current);
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -187,7 +187,7 @@ var Child = React.createClass({
     }
     if(current == "Immigration"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -195,7 +195,7 @@ var Child = React.createClass({
     }
     if(current == "Indigenous Peoples"){
        parameter = str.trim(current);
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -203,7 +203,7 @@ var Child = React.createClass({
     }
     if(current == "Infrastructure"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -211,7 +211,7 @@ var Child = React.createClass({
     }
     if(current == "Judicial"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -219,7 +219,7 @@ var Child = React.createClass({
     }
     if(current == "Labor"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -227,7 +227,7 @@ var Child = React.createClass({
     }
     if(current == "Legislative"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -235,7 +235,7 @@ var Child = React.createClass({
     }
     if(current == "LGBT"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -243,7 +243,7 @@ var Child = React.createClass({
     }
     if(current == "Military"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -251,7 +251,7 @@ var Child = React.createClass({
     }
     if(current == "Municipal"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -259,7 +259,7 @@ var Child = React.createClass({
     }
     if(current == "Public Services"){
        parameter = str.trim(current);
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -267,7 +267,7 @@ var Child = React.createClass({
     }
     if(current == "Religion"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -275,7 +275,7 @@ var Child = React.createClass({
     }
     if(current == "Reproductive Health"){
        parameter = str.trim(current);
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -283,7 +283,7 @@ var Child = React.createClass({
     }
     if(current == "Social"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -291,7 +291,7 @@ var Child = React.createClass({
     }
     if(current == "Spending"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -299,7 +299,7 @@ var Child = React.createClass({
     }
     if(current == "Spending"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -307,7 +307,7 @@ var Child = React.createClass({
     }
     if(current == "State Agencies"){
        parameter = str.trim(current);
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -315,7 +315,7 @@ var Child = React.createClass({
     }
     if(current == "Taxes"){
        parameter = current;
-     return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+     return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
       ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -323,7 +323,7 @@ var Child = React.createClass({
     }
     if(current == "Technology"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -331,7 +331,7 @@ var Child = React.createClass({
     }
     if(current == "Transportation"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -339,7 +339,7 @@ var Child = React.createClass({
     }
     if(current == "Voting Rights"){
        parameter = str.trim(current);
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -347,7 +347,7 @@ var Child = React.createClass({
     }
     if(current == "Welfare"){
        parameter = current;
-      return axios.get('https://openstates.org/api/v1/bills/?chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
+      return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
         console.log(response);
         this.setState({ newCall : response.data});
@@ -356,6 +356,7 @@ var Child = React.createClass({
   },
   
   render: function() {
+    console.log(this.state.categories, "child:state");
     return (
     <div className="row child main-area">
       <div className="col-sm-3 filter-box">
@@ -487,7 +488,7 @@ var Child = React.createClass({
                <td><a className="list-group-item" data-value="Voting rights" onClick={this.handleClick}>Voting rights</a></td>
               </tr>
               <tr>
-                <td><a className="list-group-item" data-value="Welfare" onClick={this.handleClick}>Welfare</a>/</td>
+                <td><a className="list-group-item" data-value="Welfare" onClick={this.handleClick}>Welfare</a></td>
               </tr>
               
               </tbody>
@@ -501,7 +502,7 @@ var Child = React.createClass({
      </div>
 
          <div className="col-sm-9">
-          <GrandChild data={this.props.data} category={this.props.categories} text={this.state.text} newCall={this.state.newCall} />
+          <GrandChild data={this.props.data} categories={this.props.categories} text={this.state.text} newCall={this.state.newCall} />
         </div>
    </div>
     );
