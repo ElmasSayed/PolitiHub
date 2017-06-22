@@ -9,37 +9,25 @@ var key;
 
 var helpers = {
 
-    runHouse: function(query) {
+    runHouse: function() {
 
-        return axios({
-            "method": "GET",
-            "url": "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
-            "headers": {
-                "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-            } 
-        }).then(function(data) {
 
-            console.log(data.data.results[0].bills);
-            return data.data.results[0].bills;
-        
+        return axios('https://openstates.org/api/v1/bills/?chamber=lower&q=current&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf')
+        .then(function(data) {
+            console.log("House results:", data);
+            return data;
+            
         }).catch(function(error) {
             console.log(error);
         });
     },
 
-    runSenate: function(query) {
+    runSenate: function() {
 
-        return axios({
-            "method": "GET",
-            "url": "https://api.propublica.org/congress/v1/115/senate/bills/introduced.json",
-            "headers": {
-                "X-API-key": "yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8"
-            }
-        }).then(function(data) {
-
-			console.log(data.data.results[0].bills);
-            return data.data.results[0].bills;
-
+        return axios('https://openstates.org/api/v1/bills/?chamber=upper&q=current&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf')
+        .then(function(data) {
+            //console.log(data);
+            return data
         }).catch(function(error) {
             console.log(error);
         });
