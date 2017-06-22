@@ -11,9 +11,14 @@ var Parent = React.createClass({
 
   getInitialState: function() {
     return {
-      categories: '',
+      categories: 'State',
       data: []
     };
+  },
+
+
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
   },
 
   handleClick: function(event) {
@@ -25,18 +30,17 @@ var Parent = React.createClass({
     var current = event.target.getAttribute('data-value');
 
     if(current == "House"){
-       helpers.runHouse().then(function(billData){
-      console.log(billData);
-      this.setState({ data : billData.data});
-      console.log ( billData.data);
+
+      helpers.runHouse().then(function(billData){
+      this.setState({ data : billData});
+
     }.bind(this));
     
     }
     if(current == "Senate"){
       helpers.runSenate().then(function(billData){
-      console.log(billData);
-      this.setState({ data : billData.data});
-      console.log ( billData.data);
+      this.setState({ data : billData});
+
     }.bind(this));
        
 
@@ -69,23 +73,12 @@ var Parent = React.createClass({
                 <div className="elmasAA">
                     <div className="col-md-6">
                         <p>
-                            {/* Here we create a button click. Note how we have an onClick event associate with our handleClick function.
-                            <button className="btn btn-primary btn-lg" onClick={this.handleClick}>CLICK ME!!!!</button>
-                            <button className="btn btn-danger btn-lg" onClick={this.resetClick}>Reset</button>
-                            */}
+
                         </p>
                     </div>
                 </div>
                 <div className="col-md-12">
-                                {/* This is where we'll show the click count for the parent **<h1>{this.state.categories}</h1>** */}
-
-                        {/*
-                      Here we'll render the Child component.
-                      We'll pass it this component's clicks counter (this.state.clicks)
-                      as a "prop" we will also name "clicks".
-                      i.e.
-                      <ComponentName propName={propValue} />
-                    */}
+           
                     <div id="tabs" className="btn btn-group-justified">
                         <a className="btn categories" data-value="House" onClick={this.handleClick}>House</a>
                         <a className="btn categories" data-value="Senate" onClick={this.handleClick}>Senate</a>
