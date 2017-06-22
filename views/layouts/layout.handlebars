@@ -8,6 +8,8 @@
 <body>
 
   <div class="container-fluid">
+
+    <div class="header clearfix">
       <div class="row">
           <div class="col-md-9 title">
             <img src="http://assets.hrc.org//files/images/blog/TheWhiteHouse-Logo-1600x900.png" class="logo" /> PolitiHub
@@ -15,6 +17,7 @@
           <div class="col-md-3 title">
                 {{#if user}}
                 <ul class="nav nav-pills pull-right ElmasA">
+                      <li><button type="button" class="btn personal" role="presentation"><a href="/users/mySavedBills">Saved Bills</a></button></li>
                       <li><button type="button" class="btn personal" role="presentation"><a href="/users/logout">Logout</a></button></li>
                 </ul>
                 {{else}}
@@ -25,7 +28,7 @@
                 {{/if}}
           </div>
       </div>
-
+    </div>
 
     <div class="row">
       <div class="col-lg-12">
@@ -41,11 +44,11 @@
         {{{body}}}
       </div>
     </div>
-
-    <!--<footer class="footer">
+<!-- 
+    <footer class="footer">
       <p>&copy; 2017 Politihub</p>
-    </footer> -->
-
+    </footer> 
+ -->
   </div> <!-- /container -->
 
 </body>
