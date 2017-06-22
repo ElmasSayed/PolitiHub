@@ -1,17 +1,14 @@
 // Include React
 var React = require("react");
 var Axios = require("axios");
-
-
-//var helpers = require("./utils/helper");
+var helpers = require("./utils/helper");
 
 // Here we include all of the sub-components
 var Child = require("./Child");
 
-// the parent is the overall dashboard but it only actually displays the jumbrotron
 var Parent = React.createClass({
 
-  // Here we set a generic state associated with the number of clicks
+
   getInitialState: function() {
     return {
       categories: '',
@@ -19,29 +16,51 @@ var Parent = React.createClass({
     };
   },
 
-  componentDidMount: function() {
-    // var parameter = 'introduced';
-    // var key = '&apikey=yQGAnrKoJi7WWVfZ4LsbCINgYlhrXrm9YrpF2zE8';
-    // var url = 'https://api.propublica.org/congress/v1/115/house/bills/${parameter}.json${key}';
+  handleClick: function(event) {
+
+    event.preventDefault();
+
+    this.setState({ categories: event.target.getAttribute('data-value')});
+
+    var current = event.target.getAttribute('data-value');
+
+    if(current == "House"){
+       helpers.runHouse().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
     
-   Axios.get('https://openstates.org/api/v1/bills/?state=ca&q=all&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf', {}).then(function(data){
-    console.log(data);
-    this.setState({data: data.data}) 
-   }.bind(this));
-   },
-  // Whenever the button is clicked we'll use setState to add to the clickCounter
-  // Note the syntax for setting the state
-  handleClick: function() {
-    this.setState({ categories: this.state.categories});
-  },
-  // Whenever the button is clicked we'll use setState to reset the clickCounter
-  // This will reset the categories -- and it will be passed  ALL children
-  resetClick: function() {
-    this.setState({ categories: ''});
+    }
+    if(current == "Senate"){
+      helpers.runSenate().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+       
+
+    }if(current == "State"){
+        helpers.runState().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+      
+    }
+    if(current == "Local"){
+      helpers.runLocal().then(function(billData){
+      console.log(billData);
+      this.setState({ data : billData.data});
+      console.log ( billData.data);
+    }.bind(this));
+
+    }
+
   },
 
-  // Here we render the function
   render: function() {
+    console.log(this.state.categories, "state");
     return (
       <div className="container-fluid parent">
        
@@ -68,16 +87,16 @@ var Parent = React.createClass({
                       <ComponentName propName={propValue} />
                     */}
                     <div id="tabs" className="btn btn-group-justified">
-                        <a className="btn categories" onClick={this.handleClick}>House</a>
-                        <a className="btn categories" onClick={this.handleClick}>Senate</a>
-                        <a className="btn categories" onClick={this.handleClick}>State</a>
-                        <a className="btn categories" onClick={this.handleClick}>Local</a>
+                        <a className="btn categories" data-value="House" onClick={this.handleClick}>House</a>
+                        <a className="btn categories" data-value="Senate" onClick={this.handleClick}>Senate</a>
+                        <a className="btn categories" data-value="State" onClick={this.handleClick}>State</a>
+                        <a className="btn categories" data-value="Local" onClick={this.handleClick}>Local</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <Child data={this.state.data} category={this.state.categories} />
+        <Child data={this.state.data} categories={this.state.categories} />
 
       </div>
 

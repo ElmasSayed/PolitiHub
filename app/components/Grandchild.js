@@ -4,8 +4,6 @@ var React = require("react");
 // the grandchild is the actual posting of all the articles
 var GrandChild = React.createClass({
  
-var = currentLink
-
   render: function() {
     console.log(this.props.data);
     return (
@@ -25,17 +23,10 @@ var = currentLink
           <div className="grandchild-title-div">
             <ol>
             {
-              this.props.data.map(function(arg){
-              if (categories=== "house" || "senate"){
-               return (<li className="grandchild-title">
-                        <a href="whatever hyperlink here" target="_blank">{arg.title}</a>
+              this.props.data.map(function(arg, index){
+               return (<li key={index} className="grandchild-title">
+                        <a href="https://openstates.org/ca/bills/{arg.session}/{arg.bill_id}/" target="_blank">{arg.title}</a>
                         </li>);
-              } else {
-                        return (<li className="grandchild-title">
-                        <a href="whatever hyperlink here" target="_blank">{arg.title}</a>
-                        </li>);
-              }
-
               })
             }
             </ol>
