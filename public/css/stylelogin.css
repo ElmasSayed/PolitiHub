@@ -1,10 +1,8 @@
 /* Space out content a bit */
 body {
-  /*padding-top: 20px;
-  padding-bottom: 20px;*/
+ 
   background-color: lightgray;
 }
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -12,17 +10,13 @@ body {
   padding-right: 15px;
   padding-left: 15px;
 }
-
 /* Custom page header */
 .header {
-  /*padding-bottom: 20px;*/
   border-bottom: 1px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
+   line-height: 40px;
 }
 
 /* Custom page footer */
@@ -42,16 +36,6 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-/*.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}*/
-/*.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
-}
-*/
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -78,22 +62,15 @@ body {
     border-bottom: 0;
   }
 }
-
-/*.page-header{
-  margin-top:0;
-}*/
-
+/*
 footer{
   margin-top:10px;
-}
+}*/
 
 /*elmas*/
-
-
     .title{
         font-size: 50px; 
-        height: 60px; 
-        margin-top:10px; 
+        height: 70px; 
         padding-left: 50px;
         background-color:#005fbb ; 
         color:white;
@@ -101,16 +78,16 @@ footer{
     }
 
     .logo{
-        height:85px; 
-        width:85px;
-        padding-bottom: 20px;
+        height:90px; 
+        width:225px;
+        padding-right:20px;
         float: left;
+        margin-left: 50px;
     }
 
 
 .login-box{
       width: 700px;
-      /*height: 800px;*/
       margin-left: 250px;
       margin-right: 200px;
       margin-top:0px;
@@ -119,7 +96,7 @@ footer{
 
       .main-area{
             box-shadow: 10px 10px 10px 10px #888888 ;
-            margin-bottom: 15px;
+       /*     margin-bottom: 15px;*/
     }
 
     .page-header{
