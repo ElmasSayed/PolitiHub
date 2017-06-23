@@ -45,15 +45,7 @@
 		    background-color:#005fbb ; 
 		    color:white;
 		    float: left;
-		}
-
-		.logo{
-		    height:90px; 
-		    width:225px;
-		    padding-right:20px;
-		    float: left;
-		    margin-left: 50px;
-		}
+		}p
 
 		.personal{
 		    background-color:white;
@@ -137,6 +129,8 @@
 			
 
 		}
+
+
 /*-----------------------------------------------------------------------*/
 		
 /*filter*/

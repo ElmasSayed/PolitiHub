@@ -78,8 +78,7 @@ footer{
     }
 
     .logo{
-        height:90px; 
-        width:225px;
+        height:100%; 
         padding-right:20px;
         float: left;
         margin-left: 50px;
@@ -96,6 +95,7 @@ footer{
 
       .main-area{
             box-shadow: 10px 10px 10px 10px #888888 ;
+            margin: auto;
        /*     margin-bottom: 15px;*/
     }
 

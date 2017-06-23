@@ -20,8 +20,8 @@ getInitialState: function(){
     <div className="col-sm-12 display-box">
       
       <div className="panel panel-default ">
-        <div className="panel-heading">
-          <h3 className="panel-title">LEGISLATIONS</h3>
+        <div className="panel-heading text-center">
+          <h3 className="panel-title h3">Legislation to be passed</h3>
         </div>
         <div className="panel-body">
       
