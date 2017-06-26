@@ -93,9 +93,9 @@ footer{
       background-color: white;
     } 
 
-      .main-area{
-            box-shadow: 10px 10px 10px 10px #888888 ;
-           margin: auto;
+.main-area{
+      box-shadow: 10px 10px 10px 10px #888888 ;
+      margin: auto;
     }
 
     .page-header{
