@@ -21,7 +21,7 @@ var Child = React.createClass({
     this.setState({
       text: event.target.value,
     });
-  },
+  },  
 
   componentWillUnmount: function() {
     this.serverRequest.abort();
@@ -237,7 +237,7 @@ var Child = React.createClass({
        parameter = current;
       return axios.get('https://openstates.org/api/v1/bills/?state=ca&chamber=lower&q='+parameter+'&per_page=500&apikey=cd8b051a-7c89-4c20-9d63-cbabf9ab8ebf'
         ).then(function(response){
-        console.log(response);
+        console.log(response.data);
         this.setState({ newCall : response.data});
       }.bind(this));
     }
@@ -371,14 +371,6 @@ var Child = React.createClass({
       <div >
         <div className="panel-body child-title-div">
 
-         <div>
-            <input
-              type="text"
-              placeholder="search"
-              value={this.state.text}
-              onChange={this.updateText}
-            />
-          </div>
 
             <table className="table table-hover ">
               

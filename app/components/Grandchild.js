@@ -8,11 +8,14 @@ getInitialState: function(){
   return { 
 
     text : this.props.text,
-    newCall: this.props.newCall
+    newCall: this.props.newCall,
+    categories: this.props.categories
 
   }
-
 },
+
+ 
+
   render: function() {
 
     return (
@@ -31,32 +34,63 @@ getInitialState: function(){
           */}
 
           <div className="grandchild-title-div">
-          {this.props.text} 
-          {
+           
+           
+
+           {
             this.props.newCall.map(function(filteredBill, index){
-            return (<div key={index} className="panel panel-default">
+              return (
+                      <div key={index} className="panel panel-default">
                           <div className="panel-heading">
-                          <h3 className="panel-title" >Bill Name: {filteredBill.bill_id} </h3>
+                              <h3 className="panel-title" >Bill Name: {filteredBill.bill_id} </h3>
                           </div>
-                          <p className="panel-body">{filteredBill.title}</p>
-                        <button className=".btn-info" ><a href={'https://openstates.org/' + filteredBill.state + '/bills/' +filteredBill.session + '/' +filteredBill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
-                        </div>);
+                              <h3 className="panel-body">{filteredBill.title}</h3>
+                                
+                                <button className=".btn-info" >
+                                  <a href={'https://openstates.org/' + filteredBill.state + '/bills/' +filteredBill.session + '/' +filteredBill.bill_id + '/#billtext'} target="_blank" >View Status Bill</a>
+                                </button>
+                                
+                                <button className=".btn-info" >
+                                  <a href={'http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=' + filteredBill.session + filteredBill.bill_id} target="_blank" >View Current Bill Literature </a>
+                                </button>
+                                
+                                <button className=".btn-info" >
+                                  <a href={'https://www.gpo.gov/fdsys/pkg/BILLS-' + filteredBill.session + filteredBill.bill_id + 'is/pdf/BILLS-' + filteredBill.session + filteredBill.bill_id  + 'pdf'} target="_blank" >Save</a>
+                                </button>
+
+                      </div>
+              );
+            
             })
           }
-          {
-                
-               this.props.data.map(function(bill, index){
-                
-               return (<div key={index} className="panel panel-default">
-                          <div className="panel-heading">
-                          <h3 className="panel-title" >Bill Name: {bill.bill_id}</h3>
-                          </div>
-                          <p className="panel-body">{bill.title}</p>
-                          <button className=".btn-info" ><a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext'} target="_blank" >View Bill</a></button>
-                          </div>);
-              })
 
-              }
+          {
+            this.props.data.map(function(bill, index){
+                return (
+                        <div key={index} className="panel panel-default">
+                            <div className="panel-heading">
+                              <h3 className="panel-title" >Bill Name: {bill.bill_id}</h3>
+                            </div>
+                              <h3 className="panel-body">{bill.title}</h3>
+                             
+                              <button className=".btn-info" >
+                                <a href={'https://openstates.org/' + bill.state + '/bills/' +bill.session + '/' +bill.bill_id + '/#billtext'} target="_blank" >View Bill Status</a>
+                              </button>
+
+                              <button className=".btn-info" >
+                                  <a href={'http://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=' + bill.session +'0'+ bill.bill_id} target="_blank" >View Current Bill Literature </a>
+                              </button>
+                                
+                              <button className=".btn-info" >
+                                <a href={'https://www.gpo.gov/fdsys/pkg/BILLS-' + bill.session + bill.bill_id + 'is/pdf/BILLS-' + bill.session + bill.bill_id  + 'pdf'} target="_blank" >Save</a>
+                              </button>
+
+                        </div>
+                );
+            })
+          }
+          
+         
           </div>
          
         </div>
@@ -66,6 +100,7 @@ getInitialState: function(){
     );
   }
 });
+
 
 // Export the component back for use in other files
 module.exports = GrandChild;
