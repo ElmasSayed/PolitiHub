@@ -4,7 +4,9 @@
 view in the browser *
 
 $ git clone git@github.com:ElmasSayed/PolitiHub.git
+
 $ cd politihub
+
 $ npm install
 
 **This web application has a user authenticated login system so we need
