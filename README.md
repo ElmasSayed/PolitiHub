@@ -10,20 +10,18 @@ $ cd politihub
 $ npm install
 
 * This web application has a user authenticated login system so we need
-to initialize a mongo db server from our local device**
+to initialize a mongo db server from our local device, the following command can be typed from any file directory**
 
 $ mongod
 
-* Open a new node window from file root directoy and leave mongodb running in the background
+* Leave mongo db running and pen a new bash command terminal
 
 * The file directory is downloaded without a bundle.js file so to create the bundle.js file we type
 
 $webpack --watch
 
 * You can leave this webpack running or close it after it creates the bundle.js file in the public folder,
-whichever you perfer.
-
-* From root folder directory type
+whichever you prefer. If you choose to keep it running than you need to open a new bach command terminal and type
 
 $ node server
 
